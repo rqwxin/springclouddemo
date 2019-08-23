@@ -1,0 +1,25 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: 01eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  server:
+    #自我保护模式
+    enable-self-preservation: false
+    # 配置注册中心清理无效节点的时间间隔，默认60000毫秒，即60秒。
+    eviction-interval-timer-in-ms: 5000
+  client:
+    # 表示是否注册自身到eureka服务器
+    registerWithEureka: false
+    # 是否从eureka上获取注册信息
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+
